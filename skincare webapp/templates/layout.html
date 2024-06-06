@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>skincare quizzington</title>
+</head>
+
+<body>
+    <!-- Add the Navigation Bar in the base template so I don;t have to do it again! -->
+    <nav>
+      <a href="/" class="w3-bar-item w3-button w3-green">home</a>
+      <a href="/login" class="w3-bar-item w3-button">login</a>
+      <a href="/signup" class="w3-bar-item w3-button">signup</a>
+      <a href="/quiz" class="w3-bar-item w3-button">quiz</a>
+      <a href="/logout" class="w3-bar-item w3-button">logout</a>
+    </nav>
+    <!-- This is the main page with most stuff we need in it -->
+    <!-- This starts and ends a 'block' that the child template will fill out with stuff -->
+    {% block content %}{% endblock %}
+
+    <!-- Add the message flashing so we can give the user some feedback about their login process -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+</body>
+
+</html>
